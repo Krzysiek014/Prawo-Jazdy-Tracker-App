@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prawo_jazdy_app/main.dart';
-import 'package:prawo_jazdy_app/screens/map.dart';
 import 'package:prawo_jazdy_app/util/session.dart';
 
 TextEditingController usernameController = TextEditingController();
