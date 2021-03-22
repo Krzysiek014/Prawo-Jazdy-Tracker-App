@@ -60,8 +60,32 @@ class Login extends StatelessWidget {
                             'password': passwordController.text
                           }).then((value) => {
                                 if (value)
-                                  Navigator.pushNamedAndRemoveUntil(
-                                      context, MapRoute, (route) => false)
+                                  {
+                                    Navigator.pushNamedAndRemoveUntil(
+                                        context, MapRoute, (route) => false)
+                                  }
+                                else
+                                  {
+                                    showDialog(
+                                        context: context,
+                                        barrierDismissible: false,
+                                        builder: (BuildContext context) {
+                                          return AlertDialog(
+                                            title: Text('Błędne dane'),
+                                            content: Container(
+                                              child: Text(
+                                                  'Wprowadzony login lub hasło są błędne. Prosimy spróbować ponownie.'),
+                                            ),
+                                            actions: [
+                                              TextButton(
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                  child: Text('OK')),
+                                            ],
+                                          );
+                                        })
+                                  }
                               });
                         },
                         child: Text('ZALOGUJ'),
