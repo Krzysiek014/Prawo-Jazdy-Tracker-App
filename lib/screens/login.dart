@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prawo_jazdy_app/main.dart';
+import 'package:prawo_jazdy_app/screens/map.dart';
 import 'package:prawo_jazdy_app/util/session.dart';
 
 TextEditingController usernameController = TextEditingController();
@@ -53,11 +55,14 @@ class Login extends StatelessWidget {
                           onPrimary: Colors.white,
                         ),
                         onPressed: () {
-                          Session().post('login', {
+                          Session().login({
                             'username': usernameController.text,
                             'password': passwordController.text
-                          });
-                          print("RETURN: " + Session().get('map/lessons'));
+                          }).then((value) => {
+                                if (value)
+                                  Navigator.pushNamedAndRemoveUntil(
+                                      context, MapRoute, (route) => false)
+                              });
                         },
                         child: Text('ZALOGUJ'),
                       ),

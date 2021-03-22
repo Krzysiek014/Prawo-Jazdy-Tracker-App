@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:prawo_jazdy_app/style.dart';
+import 'package:prawo_jazdy_app/util/session.dart';
 import 'screens/guest.dart';
 import 'screens/login.dart';
+import 'screens/map.dart';
 import 'screens/register.dart';
 
 const GuestRoute = '/';
 const LoginRoute = '/login';
 const RegisterRoute = '/register';
+const MapRoute = '/map';
 
 void main() {
   runApp(MyApp());
@@ -38,13 +41,20 @@ class MyApp extends StatelessWidget {
       Widget screen;
       switch (settings.name) {
         case GuestRoute:
-          screen = Guest();
+          if (Session().verifyCookie()) {
+            screen = MapHome();
+          } else {
+            screen = Guest();
+          }
           break;
         case LoginRoute:
           screen = Login();
           break;
         case RegisterRoute:
           screen = Register();
+          break;
+        case MapRoute:
+          screen = MapHome();
           break;
         default:
           return null;

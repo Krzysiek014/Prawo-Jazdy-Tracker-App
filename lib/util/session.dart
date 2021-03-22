@@ -31,9 +31,29 @@ class Session {
     return response.headers;
   }
 
+  Future<bool> login(dynamic data) async {
+    final response = await http.post(
+      Uri.http('192.168.1.100:8080', 'login'),
+      body: data,
+      headers: headers,
+    );
+    var success = response.headers['location'].split('?').length == 1;
+    if (success) {
+      setCookie(response);
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   setCookie(http.Response response) {
     print('HEADERS: ' + headers.toString());
     headers['Cookie'] = response.headers['set-cookie'].split(';')[0];
     print('HEADERS: ' + headers.toString());
+  }
+
+  bool verifyCookie() {
+    print(headers.isNotEmpty);
+    return headers.isNotEmpty;
   }
 }
