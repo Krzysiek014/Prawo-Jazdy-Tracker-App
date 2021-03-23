@@ -10,11 +10,9 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'LOGOWANIE',
-            textAlign: TextAlign.center,
-          ),
+        centerTitle: true,
+        title: Text(
+          'LOGOWANIE',
         ),
       ),
       body: Container(

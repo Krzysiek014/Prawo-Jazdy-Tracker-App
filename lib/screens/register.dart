@@ -9,11 +9,9 @@ class Register extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'REJESTRACJA',
-            textAlign: TextAlign.center,
-          ),
+        centerTitle: true,
+        title: Text(
+          'REJESTRACJA',
         ),
       ),
       body: Container(

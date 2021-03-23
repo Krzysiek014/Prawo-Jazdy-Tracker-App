@@ -10,11 +10,9 @@ class MapHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(
-            child: Text(
-              'MAPA',
-              textAlign: TextAlign.center,
-            ),
+          centerTitle: true,
+          title: Text(
+            'MAPA',
           ),
           actions: [
             IconButton(
@@ -34,7 +32,7 @@ class MapHome extends StatelessWidget {
             accessToken: getKey(context, 'MAPBOX_APIKEY').toString(),
             myLocationEnabled: true,
             myLocationRenderMode: MyLocationRenderMode.GPS,
-            myLocationTrackingMode: MyLocationTrackingMode.TrackingCompass,
+            myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
           ),
         ));
   }

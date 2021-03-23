@@ -5,11 +5,9 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'PROFIL',
-            textAlign: TextAlign.center,
-          ),
+        centerTitle: true,
+        title: Text(
+          'PROFIL',
         ),
       ),
       body: Container(

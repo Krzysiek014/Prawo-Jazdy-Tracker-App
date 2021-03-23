@@ -6,11 +6,9 @@ class Guest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'PRAWO JAZDY',
-            textAlign: TextAlign.center,
-          ),
+        centerTitle: true,
+        title: Text(
+          'PRAWO JAZDY',
         ),
       ),
       body: Container(
