@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import 'package:location_permissions/location_permissions.dart';
+import 'package:prawo_jazdy_app/main.dart';
 
 class MapHome extends StatelessWidget {
   @override
@@ -15,6 +16,16 @@ class MapHome extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ProfileRoute);
+                },
+                icon: Icon(
+                  Icons.account_circle,
+                  color: Colors.white,
+                ))
+          ],
         ),
         body: Container(
           child: MapboxMap(
@@ -23,6 +34,7 @@ class MapHome extends StatelessWidget {
             accessToken: getKey(context, 'MAPBOX_APIKEY').toString(),
             myLocationEnabled: true,
             myLocationRenderMode: MyLocationRenderMode.GPS,
+            myLocationTrackingMode: MyLocationTrackingMode.TrackingCompass,
           ),
         ));
   }

@@ -4,12 +4,14 @@ import 'package:prawo_jazdy_app/util/session.dart';
 import 'screens/guest.dart';
 import 'screens/login.dart';
 import 'screens/map.dart';
+import 'screens/profile.dart';
 import 'screens/register.dart';
 
 const GuestRoute = '/';
 const LoginRoute = '/login';
 const RegisterRoute = '/register';
 const MapRoute = '/map';
+const ProfileRoute = '/profile';
 
 void main() {
   runApp(MyApp());
@@ -55,6 +57,9 @@ class MyApp extends StatelessWidget {
           break;
         case MapRoute:
           screen = MapHome();
+          break;
+        case ProfileRoute:
+          screen = Profile();
           break;
         default:
           return null;
